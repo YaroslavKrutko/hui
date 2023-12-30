@@ -81,9 +81,9 @@ const port = 5500;
 
 const databaseConfig = {
     host: process.env.DB_HOST,
-    user: procces.env.DB_USERNAME,
-    password: procces.env.DB_PASSWORD,
-    database: procces.env.DB_NAME,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     port: process.env.DB_PORT || 5432,
 };
 
