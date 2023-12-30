@@ -70,6 +70,7 @@
   //res.status(404).send('Page not found');
 //});
 
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
@@ -78,13 +79,15 @@ const { Pool } = require('pg');
 const app = express();
 const port = 5500;
 
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: 'Zh0ckfd2oo2_',
-    port: 5432,
-});
+const databaseConfig = {
+    host: process.env.DB_HOST,
+    user: procces.env.DB_USERNAME,
+    password: procces.env.DB_PASSWORD,
+    database: procces.env.DB_NAME,
+    port: process.env.DB_PORT || 5432,
+};
+
+const pool = new Pool(databaseConfig);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
